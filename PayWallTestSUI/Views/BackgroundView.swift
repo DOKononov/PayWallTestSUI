@@ -12,21 +12,24 @@ struct BackgroundView: View {
     
     var body: some View {
         ZStack {
-            Image("image_5_1")
-                .resizable()
-                .scaledToFit()
-                .offset(y: -150)
-
             GeometryReader { geometry in
-                Image("backgroundImage")
-                    .scaledToFit()
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .offset(y: yOffset)
-                    .onAppear {
-                        withAnimation(Animation.easeInOut(duration: 6).repeatForever()) {
-                            yOffset -= geometry.size.height * 0.8
+                ZStack {
+                    Image("image_5_1")
+                        .resizable()
+                        .ignoresSafeArea()
+                    Image("backgroundImage")
+                        .scaledToFit()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .offset(y: yOffset)
+                        .clipped()
+                        .onAppear {
+                            withAnimation(
+                                .easeInOut(duration: 6)
+                                .repeatForever()) {
+                                yOffset -= geometry.size.height
+                            }
                         }
-                    }
+                }
             }
             
             LinearGradient(

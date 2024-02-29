@@ -8,17 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		5627C13C2B8E36E10078CBF9 /* PayWallTestSUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627C13B2B8E36E10078CBF9 /* PayWallTestSUIApp.swift */; };
-		5627C13E2B8E36E10078CBF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627C13D2B8E36E10078CBF9 /* ContentView.swift */; };
+		5627C13E2B8E36E10078CBF9 /* PayWallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627C13D2B8E36E10078CBF9 /* PayWallView.swift */; };
 		5627C1402B8E36E20078CBF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5627C13F2B8E36E20078CBF9 /* Assets.xcassets */; };
 		5627C1432B8E36E20078CBF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5627C1422B8E36E20078CBF9 /* Preview Assets.xcassets */; };
+		5627C1562B8F35540078CBF9 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627C1552B8F35540078CBF9 /* BackgroundView.swift */; };
+		5627C15C2B8F53240078CBF9 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627C15B2B8F53240078CBF9 /* PaymentButton.swift */; };
+		564AFEA72B904FB2009DBB8F /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFEA62B904FB2009DBB8F /* Subscription.swift */; };
+		564AFEAE2B906519009DBB8F /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFEAD2B906519009DBB8F /* ConfirmationView.swift */; };
+		564AFEB02B906AA7009DBB8F /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564AFEAF2B906AA7009DBB8F /* DismissButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5627C1382B8E36E10078CBF9 /* PayWallTestSUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayWallTestSUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5627C13B2B8E36E10078CBF9 /* PayWallTestSUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallTestSUIApp.swift; sourceTree = "<group>"; };
-		5627C13D2B8E36E10078CBF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5627C13D2B8E36E10078CBF9 /* PayWallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallView.swift; sourceTree = "<group>"; };
 		5627C13F2B8E36E20078CBF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5627C1422B8E36E20078CBF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5627C1552B8F35540078CBF9 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		5627C15B2B8F53240078CBF9 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		564AFEA62B904FB2009DBB8F /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		564AFEAD2B906519009DBB8F /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		564AFEAF2B906AA7009DBB8F /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +61,12 @@
 		5627C13A2B8E36E10078CBF9 /* PayWallTestSUI */ = {
 			isa = PBXGroup;
 			children = (
-				5627C13B2B8E36E10078CBF9 /* PayWallTestSUIApp.swift */,
-				5627C13D2B8E36E10078CBF9 /* ContentView.swift */,
-				5627C13F2B8E36E20078CBF9 /* Assets.xcassets */,
+				564AFEAC2B905043009DBB8F /* App */,
+				564AFEA82B904FC5009DBB8F /* Models */,
 				5627C1412B8E36E20078CBF9 /* Preview Content */,
+				564AFEAA2B905008009DBB8F /* Screens */,
+				564AFEA92B904FFE009DBB8F /* Views */,
+				564AFEAB2B905038009DBB8F /* Assets */,
 			);
 			path = PayWallTestSUI;
 			sourceTree = "<group>";
@@ -65,6 +77,49 @@
 				5627C1422B8E36E20078CBF9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		564AFEA82B904FC5009DBB8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				564AFEA62B904FB2009DBB8F /* Subscription.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		564AFEA92B904FFE009DBB8F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5627C15B2B8F53240078CBF9 /* PaymentButton.swift */,
+				5627C1552B8F35540078CBF9 /* BackgroundView.swift */,
+				564AFEAF2B906AA7009DBB8F /* DismissButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		564AFEAA2B905008009DBB8F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5627C13D2B8E36E10078CBF9 /* PayWallView.swift */,
+				564AFEAD2B906519009DBB8F /* ConfirmationView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		564AFEAB2B905038009DBB8F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5627C13F2B8E36E20078CBF9 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		564AFEAC2B905043009DBB8F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5627C13B2B8E36E10078CBF9 /* PayWallTestSUIApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5627C13E2B8E36E10078CBF9 /* ContentView.swift in Sources */,
+				564AFEB02B906AA7009DBB8F /* DismissButton.swift in Sources */,
+				5627C15C2B8F53240078CBF9 /* PaymentButton.swift in Sources */,
+				5627C13E2B8E36E10078CBF9 /* PayWallView.swift in Sources */,
+				564AFEAE2B906519009DBB8F /* ConfirmationView.swift in Sources */,
 				5627C13C2B8E36E10078CBF9 /* PayWallTestSUIApp.swift in Sources */,
+				5627C1562B8F35540078CBF9 /* BackgroundView.swift in Sources */,
+				564AFEA72B904FB2009DBB8F /* Subscription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

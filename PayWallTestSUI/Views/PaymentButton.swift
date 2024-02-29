@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct PaymentButton: View {
-    var paymentItem: PaymentItem
+    
+    var subscription: Subscription
+    var isSelected: Subscription?
+    
+    private var scrokeColor : Color {
+        if let isSelected, isSelected == subscription {
+            Color.appSelectedBorder
+        } else {
+            Color.clear
+        }
+    }
     
     var body: some View {
         
         VStack {
             RoundedRectangle(cornerRadius: 20)
-                .stroke(paymentItem.isSelected ? Color.appSelectedBorder : Color.clear, lineWidth: 2)
+                .stroke(scrokeColor, lineWidth: 2)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.btnBackground)
@@ -22,19 +32,20 @@ struct PaymentButton: View {
                 .frame( height: 60)
                 .overlay(alignment: .leading) {
                     HStack(alignment: .lastTextBaseline) {
-                        VStack {
-                            Text(paymentItem.title)
-                                .foregroundStyle(Color.fontColor)
-                            Text(paymentItem.value)
+                        VStack(alignment: .leading) {
+                            Text(subscription.title)
+                                .foregroundStyle(Color.btnTitle)
+                            Text(subscription.subTitle)
                                 .foregroundStyle(.white)
                         }
+                        .padding()
                         Spacer()
-                        if let valuePerWeek = paymentItem.valuePerWeek {
-                            Text(valuePerWeek)
+                        if let costPerWeek = subscription.costPerWeekTitle {
+                            Text(costPerWeek)
                                 .foregroundStyle(.white)
+                                .padding(.trailing)
                         }
                     }
-                    .padding()
                 }
         }
     }
@@ -43,7 +54,7 @@ struct PaymentButton: View {
 
 struct PaymentButton_Previews: PreviewProvider {
     static var previews: some View {
-        PaymentButton(paymentItem: PaymentItem(isSelected: true, title: "Test", value: "$0"))
+        PaymentButton(subscription: .yearly)
     }
 }
 

@@ -9,17 +9,9 @@ import SwiftUI
 
 struct PayWallView: View {
     
-
-    
-    @State private var base = PaymentItem(isSelected: false,
-                                          title: "First 3 days free",
-                                          value: "Weekly - $9.99",
-                                          valuePerWeek: nil)
-    @State private var pro = PaymentItem(isSelected: false,
-                                         title: "Special Offer",
-                                         value: "Yearly - $49.99",
-                                         valuePerWeek: "$4.99 / week")
-    
+    @State private var selectedSubscription: Subscription?
+    @State private var isShowingAlert = false
+    @State private var isShowingConfirmation = false
     
     var body: some View {
         
@@ -29,23 +21,23 @@ struct PayWallView: View {
                 Text("Unlock all templates")
                     .font(.title)
                     .foregroundStyle(.white)
-
-                PaymentButton(paymentItem: base)
+                
+                PaymentButton(subscription: .weekly, isSelected: selectedSubscription)
                     .onTapGesture {
-                        base.isSelected.toggle()
-                        pro.isSelected = false
+                        selectedSubscription = .weekly
                     }
                 
-                PaymentButton(paymentItem: pro)
+                PaymentButton(subscription: .yearly, isSelected: selectedSubscription)
                     .onTapGesture {
-                        pro.isSelected.toggle()
-                        base.isSelected = false
+                        selectedSubscription = .yearly
                     }
                 
                 Button {
-                    print("Tap")
+                    guard selectedSubscription != nil else { return }
+                    isShowingConfirmation = true
+                    
                 } label: {
-              RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 20)
                         .fill(Color.continueButton)
                         .frame( height: 60)
                 }
@@ -53,25 +45,34 @@ struct PayWallView: View {
                     Text("Continue")
                         .foregroundStyle(.white)
                 }
+                .fullScreenCover(isPresented: $isShowingConfirmation) {
+                    if let selectedSubscription {
+                        ConfirmationView(selectedSubscription: selectedSubscription,
+                                         isShowingConfirmation: $isShowingConfirmation)
+                    }
+                }
                 
                 HStack {
-                    Button(action: {}, label: {
-                        Text("Terms")
-                    })
+                    Text("Terms")
                     Spacer()
-                    Button(action: {}, label: {
-                        Text("Privacy Policy")
-                    })
+                    Text("Privacy Policy")
                     Spacer()
-                    Button(action: {}, label: {
-                        Text("Restore")
-                    })
+                    Text("Restore")
                 }
                 .foregroundStyle(.gray)
                 .padding()
-
+                .onTapGesture {
+                    isShowingAlert = true
+                }
             }
             .padding()
+        }
+        .overlay(Button(action: {},
+                        label: { DissmisButton()}),
+                 alignment: .topTrailing)
+        
+        .alert("Coming soon...", isPresented: $isShowingAlert) {
+            Button("OK") {}
         }
     }
 }
